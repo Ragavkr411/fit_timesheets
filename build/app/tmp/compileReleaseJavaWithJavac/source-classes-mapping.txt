@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/futurainstech/fit_timesheets/BuildConfig.java
+ com.futurainstech.fit_timesheets.BuildConfig

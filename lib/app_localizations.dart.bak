@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:flutter/services.dart';
+
+class AppLocalization {
+  static Map<String, String> _localizedStrings;
+
+
+  static Future<AppLocalization> load(Locale locale) async {
+    String jsonString =
+    await rootBundle.loadString('lang/${locale.languageCode}.json');
+    Map<String, dynamic> jsonMap = json.decode(jsonString);
+    _localizedStrings = jsonMap.map((key, value) {
+      return MapEntry(key, value.toString());
+    });
+
+  }
+
+  static AppLocalization of(BuildContext context) {
+    print(context);
+    return Localizations.of<AppLocalization>(context, AppLocalization);
+  }
+
+
+  String translate(String key) {
+    return (_localizedStrings != null)? _localizedStrings[key]:"";
+  }
+
+}
+
+class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalization> {
+  final Locale overriddenLocale;
+
+  const AppLocalizationDelegate(this.overriddenLocale);
+
+  @override
+  bool isSupported(Locale locale) => ['en', 'km'].contains(locale.languageCode);
+
+  @override
+  Future<AppLocalization> load(Locale locale) => AppLocalization.load(locale);
+
+  @override
+  bool shouldReload(LocalizationsDelegate<AppLocalization> old) => false;
+}

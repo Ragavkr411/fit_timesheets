@@ -1,0 +1,19 @@
+{
+  "username": "Username",
+  "password": "Passsword",
+  "login": "LOGIN",
+  "sendOtp" : "SEND OTP",
+
+  "activity": "Activity",
+  "to_date": "To Date",
+  "from_date": "From Date",
+  "edit": "Edit",
+  "cancel ": "Cancel",
+  "clear": "Clear",
+  "save": "Save",
+  "submit": "Submit",
+  "hours": "Hours",
+
+  "selecte_proj": "Select Project Type"
+
+}
